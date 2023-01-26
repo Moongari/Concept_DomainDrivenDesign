@@ -1,4 +1,5 @@
 ﻿using Csl_Concept_DomainDrivenDesign.Entites;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Csl_Concept_DomainDrivenDesign.Repository
     {
 
         List<Book> ListNBooks = new List<Book>();
-
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public Guid id => Guid.NewGuid();
 
         public string message { get; set; }
@@ -44,6 +45,7 @@ namespace Csl_Concept_DomainDrivenDesign.Repository
                     }
 
             message = "remove a book by  Id Guid in Repository";
+            log.Info(message);
         }
 
    

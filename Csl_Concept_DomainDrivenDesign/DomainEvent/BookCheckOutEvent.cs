@@ -20,9 +20,12 @@ namespace Csl_Concept_DomainDrivenDesign.DomainEvent
 
         public BookCheckOutEvent bookCheckOutEvent(Book book, DateTime checkOutDate)
         {
-           Book = book;
+            Book = book;
             CheckOutDate = checkOutDate;
             return this;
         }
+
+
+     
     }
 }
