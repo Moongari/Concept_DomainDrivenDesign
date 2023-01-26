@@ -69,7 +69,7 @@ Console.WriteLine(" EMPRUNT D'UN LIVRE  ");
 bookFacade.CheckOutBook(book2.ISBN);
 
 
-var bookEvent = bookFacade.CheckoutBookEv(book2, DateTime.Now);
+    var bookEvent = bookFacade.CheckoutBookEv(book2, DateTime.Now);
 
     if(bookEvent.Book.IsCheckedOut)
         {
