@@ -19,10 +19,12 @@ namespace Csl_Concept_DomainDrivenDesign.Entites
         {
 
         }
-        public Book(string title, string author)
+        public Book(string title, string author, Guid id,string isbn)
         {
             Title = title;
             Author = author;
+            Id = id;
+            ISBN = isbn;
         }
 
         public Guid Id {get; set; }

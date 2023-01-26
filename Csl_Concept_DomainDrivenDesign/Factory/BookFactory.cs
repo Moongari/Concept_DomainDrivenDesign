@@ -15,13 +15,14 @@ namespace Csl_Concept_DomainDrivenDesign.Factory
 
 
     /// </summary>
-    public class Factory
+    public class BookFactory
     {
 
         public static Book Create(string title,string author, string ISBN)
         {
             var bookTitle = new BookTitle(title, ISBN);
-            var book = new Book(bookTitle.Title,author);
+            Guid bookid = Guid.NewGuid();
+            var book = new Book(bookTitle.Title,author, bookid,bookTitle.ISBN);
 
             return book;
         }

@@ -18,11 +18,30 @@ using IHost host = Host.CreateDefaultBuilder(args).ConfigureServices(services =>
 ExemplifyServiceLifetime(host.Services, "LifeTime 1");
 
 // Lancement et creation du DDD
-Book book1 = new Book() { Id = Guid.NewGuid(), ISBN = "12369", Title = "TINTIN", Author = "HERGE", IsCheckedOut = false };
+
+string _title = "TINTIN";
+string _author = "HERGE";
+string isbn = "4569";
+string isbn2 = "00236";
 BookFacade bookFacade = new BookFacade();
 
+var book1 = bookFacade.CreateBookFactory(_title, _author, isbn.ToString());
+Console.WriteLine(bookFacade.message);
 bookFacade.AddBookInLibrary(book1);
 Console.WriteLine( bookFacade.message);
+
+Console.WriteLine("\n");
+var book2 = bookFacade.CreateBookFactory(_title="TOM & JERRY", _author="WALT DisNey", isbn2.ToString());
+Console.WriteLine(bookFacade.message);
+bookFacade.AddBookInLibrary(book2);
+Console.WriteLine($"ID : {book2.Id} \n {bookFacade.FindBook(book2.ISBN).Author} \n {book2.Title} is present in library ");
+
+bookFacade.SaveBookInRepository(book2);
+
+Console.WriteLine(bookFacade.message);
+
+
+
 
 
 
