@@ -30,15 +30,16 @@ namespace Csl_Concept_DomainDrivenDesign.Aggregate
 
         public Book FindBook(string isbn)
         {
-            if(!string.IsNullOrEmpty(isbn))
+            if(Books.Count > 0 && Books != null)
             {
-                return Books.SingleOrDefault(x => x.ISBN.Equals(isbn));
+                if (!string.IsNullOrEmpty(isbn))
+                {
+                    return Books.SingleOrDefault(x => x.ISBN == isbn);
+                }
+               
             }
-            else
-            {
-                return null;
-            }
-          
+
+            return null;
         }
 
     }
